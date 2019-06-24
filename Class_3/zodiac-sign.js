@@ -1,5 +1,4 @@
 
-// Ask user to enter his date of birth. Display the user's [astrological sign]
 let astroSign = [
   "Aquarius",
   "Pisces",
