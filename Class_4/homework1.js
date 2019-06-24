@@ -7,11 +7,8 @@ function echo(arg) {
     printArea.appendChild(p);
 }
 
-let integer1 = prompt("Please enter your first number.")
+let word = prompt("Please enter your word.")
 
-let integer2 = prompt("Please enter your")
-
-let n = (integer1 * integer2)
 function checkPalindrome(word) {
     var len = Math.floor(word.length / 2);
     for (var i = 0; i < len; i++)
