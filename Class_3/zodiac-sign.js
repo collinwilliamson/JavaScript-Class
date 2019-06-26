@@ -30,7 +30,7 @@ let startDateRange = [
   "12-31",
 ];
 const sign = prompt("Enter date of birth in MM-DD format");
-var Astrological_sign = "";
+let Astrological_sign = "";
 if (new Date(sign) >= new Date(startDateRange[0]) && new Date(sign) < new Date(startDateRange[1])) {
   Astrological_sign = astroSign[11];
 } else if (new Date(sign) >= new Date(startDateRange[1]) && new Date(sign) < new Date(startDateRange[2])) {
