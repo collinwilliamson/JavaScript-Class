@@ -26,23 +26,16 @@ function echo(arg) {
 
     let userEmail = prompt("Please enter a valid email address.")
 
-    while (true){
-        if (userEmail.includes("@") === true) {
-            break;
-        } else {
-            alert("Not a valid email address.");
-        }
+    while (!userEmail.includes("@")) {
+        alert("Not a valid email address.")
+        userEmail = prompt("Please enter a valid email address.");
     }
     let firstpassword = prompt("Enter First Password.")
     let secondpassword = prompt("Re-confirm Password.")
-    let passwordVal = firstpassword === secondpassword
 
-    while (true) {
-        if (passwordVal === true) {
-            break;
-        } else {
-            alert("password must be same.");
-        }
+    while (firstpassword !== secondpassword) {
+        alert("password must be same.");
+        secondpassword = prompt("Re-confirm Password.");
     }
 
     let userBirthday = prompt("Enter Your Birthday in mm/dd/yyyy format");
