@@ -1,9 +1,3 @@
-function echo(arg) {
-    const printArea = document.getElementById("main");
-    const p = document.createElement("p");
-    p.textContent = arg;
-    printArea.appendChild(p);
-}
 
 /*
 1. (11 pts) With the separate prompts ask user to enter 
@@ -15,32 +9,56 @@ Otherwise, using constructor function create an object with user details.
 Display "Successfully created account for " and show entered account information.
 */
 
-let userName = prompt("Please create a user name.");
-let userEmail = prompt("Please enter a valid email address.");
 
-let userAge = prompt("Please enter your birdday in mm-dd-yyyy format.");
-
-
-function validate_form() {
-    valid = true;
-
-    if (userName == "") {
-        alert("Please fill in the 'Your Name' box.");
-        valid = false;
-    }
-
-    return valid;
+function echo(arg) {
+    const printArea = document.getElementById("main");
+    const p = document.createElement("p");
+    p.textContent = arg;
+    printArea.appendChild(p);
 }
 
-let userPassword = prompt("Please create a user password.");
-let userValidation = prompt("Please validate your password by entering it again.");
+(function accountCreate() {
+    let name = prompt("Enter Username.")
 
-function match() {
-    if (userPassword == userValidation) {
-        return true;
+    if (name == null || name == "") {
+        alert("Name can't be blank");
     }
-    else {
-        alert("password must be same!");
-        return false;
+
+    let userEmail = prompt("Please enter a valid email address.")
+
+    if (userEmail.includes("@") !== true) {
+        alert("Please enter a valid password.")
     }
-}
+
+    let firstpassword = prompt("Enter First Password.")
+    let secondpassword = prompt("Re-confirm Password.")
+
+    if (firstpassword !== secondpassword) {
+        alert("password must be same.");
+    }
+
+    let userBirthday = prompt("Enter Your Birthday in mm/dd/yyyy format");
+    const birthDay = new Date(userBirthday);
+    let currentDay = new Date();
+    let birthYear = birthDay.getFullYear();
+    let currentYear = currentDay.getFullYear();
+
+    const userAge = currentYear - birthYear;
+
+    if (userAge < 13) {
+        alert("You must be 13 years or older");
+    }
+
+    function userAccount(name, userEmail, firstpassword, userBirthday, userAge) {
+        this.name = name;
+        this.userEmail = userEmail;
+        this.firstpassword = firstpassword;
+        this.userBirthday = userBirthday;
+        this.userAge = userAge;
+    }
+
+    let newAccount = new userAccount()
+
+    echo("Your Account Information: " + newAccount.userAccount)
+
+})();

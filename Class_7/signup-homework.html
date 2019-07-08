@@ -2,68 +2,16 @@
 <html lang="en-US">
 
 <head>
-    <meta charset="UTF-8">
-    <title>A sample page</title>
+  <meta charset="UTF-8">
+  <title>A sample page</title>
 
 </head>
 
 <body>
-    <div id="main">
+  <div id="main">
 
-    </div>
-    <script>
-        function validateForm() {
-            var name = document.myform.name.value;
-
-            if (name == null || name == "") {
-                alert("Name can't be blank");
-                return false;
-            }
-        }
-        function matchPass() {
-            var firstpassword = document.f1.password.value;
-            var secondpassword = document.f1.password2.value;
-
-            if (firstpassword == secondpassword) {
-                return true;
-            }
-            else {
-                alert("password must be same.");
-                return false;
-            }
-        }
-        function ageMatch() {
-            let today = newDate();
-            var userAge = Math.ceil((document.myform.age.value - today.getFullyear()) / (365));
-            if (useraAge > 13) {
-                return true;
-            }
-            else {
-                alert("Age must be above 13.");
-                return false;
-            }
-        }
-
-        function FormInput() {
-            this.userage = "Age:" + userage;
-            this.matchPass = "Password" + firstpassword;
-            this.name = "Username" + name;
-        }
-
-    </script>
-
-    <body>
-        <form name="myform" method="post" action="a" onsubmit="return validateform()">
-            Name: <input type="text" name="name"><br />
-            Password: <input type="password" name="password"><br />
-            Re-enter Password:<input type="password" name="password2" /><br />
-            Birthdate: <input type="birthdate" name="age"> <br>
-            <input type="submit" onclick="FormInput();"><br/>
-            <label>Your input: </label>
-            <span id='display'></span></p>
-        </form>
-        </form>
-
-    </body>
+  </div>
+  <script src="homework.js"></script>
+</body>
 
 </html>
