@@ -57,8 +57,6 @@ function echo(arg) {
         this.userAge = userAge;
     }
 
-    let newAccount = new userAccount()
-
-    echo("Your Account Information: " + newAccount.userAccount)
+    echo("Your Account Information: " + userAccount)
 
 })();
