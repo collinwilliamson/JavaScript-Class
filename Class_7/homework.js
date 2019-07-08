@@ -26,15 +26,23 @@ function echo(arg) {
 
     let userEmail = prompt("Please enter a valid email address.")
 
-    if (userEmail.includes("@") !== true) {
-        alert("Please enter a valid password.")
+    while (true){
+        if (userEmail.includes("@") === true) {
+            break;
+        } else {
+            alert("Not a valid email address.");
+        }
     }
-
     let firstpassword = prompt("Enter First Password.")
     let secondpassword = prompt("Re-confirm Password.")
+    let passwordVal = firstpassword === secondpassword
 
-    if (firstpassword !== secondpassword) {
-        alert("password must be same.");
+    while (true) {
+        if (passwordVal === true) {
+            break;
+        } else {
+            alert("password must be same.");
+        }
     }
 
     let userBirthday = prompt("Enter Your Birthday in mm/dd/yyyy format");
@@ -42,21 +50,12 @@ function echo(arg) {
     let currentDay = new Date();
     let birthYear = birthDay.getFullYear();
     let currentYear = currentDay.getFullYear();
-
     const userAge = currentYear - birthYear;
 
     if (userAge < 13) {
         alert("You must be 13 years or older");
     }
 
-    function userAccount(name, userEmail, firstpassword, userBirthday, userAge) {
-        this.name = name;
-        this.userEmail = userEmail;
-        this.firstpassword = firstpassword;
-        this.userBirthday = userBirthday;
-        this.userAge = userAge;
-    }
-
-    echo("Your Account Information: " + userAccount)
+    alert("Your Account Information: " + "Username: " + name + " Email:" + userEmail + " Password:" + firstpassword + " Birthday:" + userBirthday)
 
 })();
