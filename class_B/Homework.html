@@ -148,24 +148,45 @@ navigation">
         </div>
     </div>
     <script>
-        // (function () {
-        const slideshow = window.setInterval(next, 5000);
-        function next() {
-            const slides = document.querySelectorAll(".carousel-item");
-            const indicators = document.querySelectorAll("[data-target='#carouselExample']")
-            for (let i = 0; i < slides.length; i++) {
-                if (slides[i].classList.contains("active")) {
-                    slides[i].classList.remove("active");
-                    slides[(i + 1) % slides.length].classList.add("active");
-                    indicators[i].classList.remove("active");
-                    indicators[(i + 1) % indicators.length].classList.add("active");
-                    break;
+       // (function () {
+            const indicators = document.querySelectorAll(
+                "[data-target='#carouselExample']"
+            );
+            const slider = document.querySelectorAll(".carousel-item");
+            const nextSlide = document.querySelector(".carousel-control-next");
+            const prevSlide = document.querySelector(".carousel-control-prev");
+            function next(slider) {
+                for (let i = 0; i < slider.length; i++) {
+                    if (slider[i].classList.contains("active")) {
+                        slider[i].classList.remove("active");
+                        indicators[i].classList.remove("active");
+                        slider[(i + 1) % slider.length].classList.add("active");
+                        indicators[(i + 1) % slider.length].classList.add("active");
+                        break;
+                    }
                 }
             }
-        }
-        const nextSlide = document.querySelector(".carousel-control-next")
-        
-       // })();
+            function prev(slider) {
+                for (let i = 0; i < slider.length; i++) {
+                    if (slider[i].classList.contains("active")) {
+                        slider[i].classList.remove("active");
+                        indicators[i].classList.remove("active");
+                        slider[(i + slider.length - 1) % slider.length].classList.add("active");
+                        indicators[(i + slider.length - 1) % slider.length].classList.add("active");
+                        break;
+                    }
+                }
+            }
+            var set = setInterval(next, 5000, slider);
+            nextSlide.addEventListener("click", e => {
+                next(slider);
+                clearInterval(set);
+            });
+            prevSlide.addEventListener("click", e => {
+                prev(slider);
+                clearInterval(set);
+            });
+      //  })();
     </script>
 </body>
 
