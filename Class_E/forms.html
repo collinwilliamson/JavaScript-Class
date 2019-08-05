@@ -113,12 +113,52 @@
       //form.onsubmit = function () {
       //  return false;
       //};
-      /* Option 2 */
-      //form.addEventListener("submit", function (e) {
-      //  e.preventDefault();
-      //});
 
-      let submitButton = document.getElementById("submit");
+      const emailValidation = /\S+@\S+\.\S+/;
+      const userName = /^[0-9a-zA-Z]+$/;
+      const userNameInput = document.querySelector("#username");
+      const emailInput = document.querySelector("#email");
+      const checkBox = document.querySelector(".form-check-input");
+      const passwordInput = document.querySelector("#password");
+      const passwordConfirm = document.querySelector("#password_confirm");
+  
+      functiom isFormValid() {
+        let isValid = true;
+        if (checkBox.checked === false) {
+          isValid = false;
+        }
+        
+        return isValid;
+      }
+
+      form.addEventListener("submit", function (e) {
+        if (checkBox.checked === false) {
+          e.preventDefault();
+        }
+        if (emailValidation.test(emailInput.value) === false) {
+          console.log("Invalid Email");
+          e.preventDefault();
+        }
+        if (userName.test(userNameInput.value) === false) {
+          console.log("invalid Username");
+          e.preventDefault();
+        }
+        if (userName.test(userNameInput.value) === false) {
+          console.log("invalid Username");
+          e.preventDefault();
+        }
+        if ((passwordInput.value).length < 4) {
+            console.log("Your password has less than 8 characters.");
+            e.preventDefault();
+        }
+        if (passwordInput.value != passwordConfirm.value) {
+            console.log("Your passwords do not match");
+            e.preventDefault();
+        }
+
+      });
+
+      //let submitButton = document.getElementById("submit");
       /* Option 3 */
       //submitButton.onclick = function () {
       //  return false;
