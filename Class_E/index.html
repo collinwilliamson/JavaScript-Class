@@ -77,6 +77,18 @@
   </footer>
   <script>
     (function () {
+let childButton = document.querySelector("#child");
+let grandButton = document.querySelector("#grandparent");
+
+grandButton.addEventListener("click", (e) =>{
+console.log("I am the grandparent")
+},true);
+grandButton.addEventListener("click", (e) =>{
+console.log("I am grandparent again");
+},true);
+childButton.addEventListener("click", (e) =>{
+console.log("I am the child")
+});
 
     })();
   </script>
